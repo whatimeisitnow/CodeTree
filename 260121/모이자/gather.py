@@ -1,18 +1,12 @@
 n = int(input())
 A = list(map(int, input().split()))
 
-# Please write your code here.
-min_val = 1000
+min_val = float('inf')
+
 for i in range(n):
-    target = 0
-    sum = 0
-    for a in A:
-        diff = abs(target - i)
-        sum += diff * a
-        target += 1
-    
-    if min_val > sum:
-        min_val = sum
+    total = 0
+    for idx, a in enumerate(A):
+        total += abs(idx - i) * a
+    min_val = min(min_val, total)
 
 print(min_val)
-
